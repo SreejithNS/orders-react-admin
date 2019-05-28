@@ -4,6 +4,7 @@ import {Check} from '@material-ui/icons';
 import {signIn,signOut} from "./redux/actions/authActions"
 import { Switch, Route, Link } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
+import AppConfiguration from './pages/AppConfiguration';
 
 import {connect} from 'react-redux'
 
@@ -14,7 +15,13 @@ class App extends Component {
         name:'Dashboard',
         path:'',
         icon:<Check/>
+      },
+      {
+        name:'App Config',
+        path:'appconfig',
+        icon:<Check/>
       }
+
     ]
 
   render() {
@@ -51,6 +58,9 @@ class App extends Component {
 
             <Route exact path="/">
               <Dashboard toggleSideMenu={()=> {props.toggleSideMenu()}}/>
+            </Route>
+            <Route  path="/appconfig">
+              <AppConfiguration toggleSideMenu={()=> {props.toggleSideMenu()}}/>
             </Route>
 
           </Switch>

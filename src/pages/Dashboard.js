@@ -3,7 +3,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
-import {Paper, List, ListItem, ListItemText, Chip, Box} from "@material-ui/core";
+import {Paper, List, ListItem, ListItemText, Box} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
 import SettingsIcon from '@material-ui/icons/Settings'
 import {withStyles} from '@material-ui/core/styles';
@@ -25,6 +25,13 @@ var css = {
     content:{
         padding:8,
         height:90
+    },
+    configValue:{
+        fontWeight:600,
+        padding:"3px 0px",
+        backgroundColor:'#eee',
+        borderRadius:"8px",
+        textAlign:'center'
     }
 };
 
@@ -54,13 +61,18 @@ class Dashboard extends Component{
                     </AppBar>
                 </div>
                 <div className={props.classes.content}>
-                    <Paper m={6}>
-                    <Box display="flex" pl={2} pt={2}>
-                        <SettingsIcon/><Typography variant="body1" color='textPrimary'>Configuration</Typography>
+                    <Paper m={6} p={3}>
+                    <Box display="flex" alignItems="center" pl={2} pt={2}>
+                        <SettingsIcon mr={1}/><Typography variant="h6" color='textPrimary'>Configuration</Typography>
                     </Box>
-                        <List>
+                        <List dense>
                             <ListItem>
-                                <ListItemText>Location: {admin?admin.appSettings.location:""}</ListItemText>
+                                <ListItemText>Pricelist Code</ListItemText>
+                                <ListItemText className={props.classes.configValue}>{admin?admin.appSettings.pricelist:""}</ListItemText>
+                            </ListItem>
+                            <ListItem> 
+                                <ListItemText>Location</ListItemText>
+                                <ListItemText className={props.classes.configValue}>{admin?admin.appSettings.location:""}</ListItemText>
                             </ListItem>
                         </List>
                     </Paper>

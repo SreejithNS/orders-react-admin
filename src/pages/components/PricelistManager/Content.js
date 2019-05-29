@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import {Paper, List, ListItem, ListItemText, Box, Typography} from "@material-ui/core";
 import {withStyles} from '@material-ui/core/styles';
 import {Redirect} from 'react-router-dom';
-import DashboardIcon from "@material-ui/icons/DashboardRounded";
 import Loading from "../../components/Loading"
 import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
@@ -32,9 +30,9 @@ class Content extends Component{
         const {pricelists} = this.props;
         var result = [];
         pricelists.map((pricelist)=>{
-            var obj = new Object;
+            var obj = {};
             obj.pricelistCode = pricelist.id;
-            result.push(obj)
+            return result.push(obj)
         })
         return result
     }
@@ -72,4 +70,4 @@ export default compose(connect(mapStateToProps),firestoreConnect([
     {
         collection:'pricelists'
     }
-]),withStyles())(Content)
+]),withStyles(css))(Content)

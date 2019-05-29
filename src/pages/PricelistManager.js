@@ -2,14 +2,11 @@ import React, {Component,Fragment} from 'react';
 import {Switch, Route} from 'react-router-dom';
 import {Toolbar,AppBar,Typography,IconButton} from "@material-ui/core";
 import MenuIcon from '@material-ui/icons/Menu';
-import SettingsIcon from '@material-ui/icons/Settings'
+//import SettingsIcon from '@material-ui/icons/Settings'
 import {withStyles} from '@material-ui/core/styles';
 import LoginButton from './components/LoginButton';
 import Content from './components/PricelistManager/Content';
 import Edit from './components/PricelistManager/Edit'
-// import {compose} from 'redux';
-// import {firestoreConnect} from 'react-redux-firebase';
-// import {connect} from 'react-redux';
 
 var css = {
     root: {
@@ -37,7 +34,6 @@ class PricelistManager extends Component{
 
     render(){
         const {props,state} = this;
-        const {admin} = this.props;
         return(
             <Fragment>
                 <div className={props.classes.root}>

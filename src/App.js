@@ -5,7 +5,7 @@ import {signIn,signOut} from "./redux/actions/authActions"
 import { Switch, Route, Link } from 'react-router-dom';
 import Dashboard from './pages/Dashboard';
 import AppConfiguration from './pages/AppConfiguration';
-
+import PricelistManager from './pages/PricelistManager'
 import {connect} from 'react-redux'
 
 class App extends Component {
@@ -20,7 +20,12 @@ class App extends Component {
         name:'App Config',
         path:'appconfig',
         icon:<Check/>
-      }
+      },
+      {
+        name:'Pricelist Manager',
+        path:'pricelistmanager',
+        icon:<Check/>
+      },
 
     ]
 
@@ -62,7 +67,9 @@ class App extends Component {
             <Route  path="/appconfig">
               <AppConfiguration toggleSideMenu={()=> {props.toggleSideMenu()}}/>
             </Route>
-
+            <Route  path="/pricelistmanager">
+              <PricelistManager toggleSideMenu={()=> {props.toggleSideMenu()}}/>
+            </Route>
           </Switch>
       </div>
     );

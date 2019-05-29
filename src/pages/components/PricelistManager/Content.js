@@ -38,7 +38,7 @@ class Content extends Component{
     }
     render(){
         return(
-        <div style={this.props.classes.root}>
+        <div className={this.props.classes.root}>
             {this.getPricelists()?<MaterialTable
                 columns={[
                     { title: 'Code', field: 'pricelistCode' },

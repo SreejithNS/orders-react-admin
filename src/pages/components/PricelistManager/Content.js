@@ -60,7 +60,7 @@ class Content extends Component{
                     }
                 ]}
             />:<Loading/>}
-            <StylesProvider/>
+            </StylesProvider>
             {this.state.redirect?<Redirect to={"/pricelistmanager/edit/"+this.state.plcode} />:""}
          </div>
         )

@@ -5,7 +5,13 @@ import {connect} from 'react-redux';
 import MaterialTable from 'material-table';
 import {withStyles} from '@material-ui/core'
 import Loading from '../Loading'
+
 import {updateData} from '../../../redux/actions/pricelistActions';
+import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'mt',
+  seed: 'mt'
+});
 
 const css =(theme)=>{
     return {
@@ -42,6 +48,7 @@ class Edit extends Component{
     render(){
         return (
             <div className={this.props.classes.root}>
+            <StylesProvider generateClassName={generateClassName}>
             {this.parseData()?<MaterialTable
                 columns={[
                     { title: 'Brand', field: 'brand' },
@@ -79,6 +86,7 @@ class Edit extends Component{
                         }),
                     }}
             />:<Loading/>}
+            </StylesProvider>
             </div>
             )
     }

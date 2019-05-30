@@ -5,7 +5,12 @@ import Loading from "../../components/Loading"
 import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
-import MaterialTable from 'material-table'
+import MaterialTable from 'material-table';
+import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
+const generateClassName = createGenerateClassName({
+  productionPrefix: 'mt',
+  seed: 'mt'
+});
 const css =(theme)=>{
     return {
         root:{
@@ -39,6 +44,7 @@ class Content extends Component{
     render(){
         return(
         <div className={this.props.classes.root}>
+        <StylesProvider generateClassName={generateClassName}>
             {this.getPricelists()?<MaterialTable
                 columns={[
                     { title: 'Code', field: 'pricelistCode' },
@@ -54,6 +60,7 @@ class Content extends Component{
                     }
                 ]}
             />:<Loading/>}
+            <StylesProvider/>
             {this.state.redirect?<Redirect to={"/pricelistmanager/edit/"+this.state.plcode} />:""}
          </div>
         )

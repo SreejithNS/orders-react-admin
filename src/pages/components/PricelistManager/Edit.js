@@ -32,7 +32,9 @@ class Edit extends Component{
         var parsedData = []
         for(var location in data){
             for(var brand in data[location]){
-                data[location][brand].map(data=>parsedData.push(data))
+                for(var itemGroup in data[location][brand]){
+                     data[location][brand][itemGroup].map(data=>parsedData.push(data))
+                }
             }
         }
         return parsedData
@@ -42,6 +44,9 @@ class Edit extends Component{
         var locationParsed = groupBy(data,"location");
         for(var location in locationParsed){
             locationParsed[location] = groupBy(locationParsed[location],"brand")
+            for(var brand in locationParsed[location]){
+                locationParsed[location][brand] = groupBy(locationParsed[location][brand],"itemGroup");
+            }
         }
         return locationParsed
     }
@@ -53,6 +58,7 @@ class Edit extends Component{
                 columns={[
                     { title: 'Brand', field: 'brand' },
                     { title: 'Zone', field: 'location' },
+                    { title: 'Item Group', field: 'itemGroup' },
                     { title: 'Item Code', field: 'itemCode',searchable:true },
                     { title: 'Name', field: 'itemName',searchable:true },
                     { title: 'Weight in g', field: 'itemWeight',type:"numeric"},
@@ -77,7 +83,7 @@ class Edit extends Component{
                         }),
                     onRowDelete: oldData =>
                         new Promise((resolve, reject) => {
-                        
+
                             let data = this.parseData();
                             const index = data.indexOf(oldData);
                             data.splice(index, 1);

@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import MaterialTable from 'material-table';
 import {withStyles} from '@material-ui/core'
 import Loading from '../Loading'
+import {updateData} from '../../../redux/actions/pricelistActions';
 
 const css =(theme)=>{
     return {
@@ -16,24 +17,31 @@ const css =(theme)=>{
 }
 
 class Edit extends Component{
+    state={
+        data:[]
+    }
     parseData(){
         if(!this.props.data) return false;
         const {data} =this.props
-        console.log(data)
-        var parsedList = []
-        //for(var location in data){
-            data["TPT"].map((pack)=>{
-                pack.itemslist.map(item=>
-                    parsedList.push({location:"TPT",brand:pack.brand,...item})
-                )
-            })
-        //}
-        //console.log(parsedList);
-        return parsedList;
+        var parsedData = []
+        for(var location in data){
+            for(var brand in data[location]){
+                data[location][brand].map(data=>parsedData.push(data))
+            }
+        }
+        return parsedData
+    }
+    packData(data){
+        var groupBy = function(xs, key) {return xs.reduce(function(rv, x) {(rv[x[key]] = rv[x[key]] || []).push(x);return rv;}, {});};
+        var locationParsed = groupBy(data,"location");
+        for(var location in locationParsed){
+            locationParsed[location] = groupBy(locationParsed[location],"brand")
+        }
+        return locationParsed
     }
     render(){
-        this.parseData()
-        return (<div className={this.props.classes.root}>
+        return (
+            <div className={this.props.classes.root}>
             {this.parseData()?<MaterialTable
                 columns={[
                     { title: 'Brand', field: 'brand' },
@@ -45,8 +53,32 @@ class Edit extends Component{
                 ]}
                 data={this.parseData()}
                 title={this.props.code}
+                editable={{
+                    onRowAdd: newData =>
+                        new Promise((resolve, reject) => {
+                            const data = this.parseData();
+                            data.push(newData);
+                            this.props.updateData(this.props.code,this.packData(data),resolve);
+                        }),
+                    onRowUpdate: (newData, oldData) =>
+                        new Promise((resolve, reject) => {
+                            const data = this.parseData();
+                            const index = data.indexOf(oldData)
+                            data[index] = newData;
+                            //this.setState({ data }, () => resolve());
+                            this.props.updateData(this.props.code,this.packData(data),resolve);
+                        }),
+                    onRowDelete: oldData =>
+                        new Promise((resolve, reject) => {
+                        
+                            let data = this.parseData();
+                            const index = data.indexOf(oldData);
+                            data.splice(index, 1);
+                            //this.setState({ data }, () => resolve());
+                            this.props.updateData(this.props.code,this.packData(data),resolve);
+                        }),
+                    }}
             />:<Loading/>}
-            
             </div>
             )
     }
@@ -57,7 +89,9 @@ const mapStateToProps = (state)=>{
         data:state.firestore.data.getData
     }
 }
-
+const mapDispatchToProps = (dispatch)=>{
+    return {updateData:(code,data,res)=>dispatch(updateData(code,data,res))}
+}
 const query = (props)=>{
     return [
         {
@@ -68,6 +102,6 @@ const query = (props)=>{
     ]
 };
 
-export default compose(firestoreConnect(query),connect(mapStateToProps),withStyles(css))(Edit)
+export default compose(firestoreConnect(query),connect(mapStateToProps,mapDispatchToProps),withStyles(css))(Edit)
 
 /*{this.state.redirect?<Redirect to={"/pricelistmanager/edit/"+this.state.plcode} />:""}*/

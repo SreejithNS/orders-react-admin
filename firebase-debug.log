@@ -1,0 +1,743 @@
+[debug] [2019-05-31T09:55:18.877Z] ----------------------------------------------------------------------
+[debug] [2019-05-31T09:55:18.881Z] Command:       /home/gitpod/.nvm/versions/node/v10.15.3/bin/node /home/gitpod/.nvm/versions/node/v10.15.3/bin/firebase emulators:start --only functions
+[debug] [2019-05-31T09:55:18.881Z] CLI Version:   6.10.0
+[debug] [2019-05-31T09:55:18.881Z] Platform:      linux
+[debug] [2019-05-31T09:55:18.881Z] Node Version:  v10.15.3
+[debug] [2019-05-31T09:55:18.881Z] Time:          Fri May 31 2019 09:55:18 GMT+0000 (Coordinated Universal Time)
+[debug] [2019-05-31T09:55:18.881Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-31T09:55:18.891Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-31T09:55:18.891Z] > authorizing via signed-in user
+[debug] [2019-05-31T09:55:18.893Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/orders-pwa  
+ 
+[debug] [2019-05-31T09:55:19.864Z] <<< HTTP RESPONSE 200
+[info] i  Starting emulators: ["functions"]
+[warn] ⚠  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-05-31T09:55:19.885Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/219384534980:getServerAppConfig  
+ 
+[debug] [2019-05-31T09:55:20.181Z] <<< HTTP RESPONSE 200
+[info] ✔  functions: Emulator started at http://localhost:5001
+[info] i  functions: Watching "/workspace/orders-react-admin/functions" for Cloud Functions...
+[debug] [2019-05-31T09:55:20.507Z] Functions runtime initialized.
+[debug] [2019-05-31T09:55:20.507Z] Disabled runtime features: undefined
+[debug] [2019-05-31T09:55:21.176Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T09:55:21.177Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T09:55:21.307Z] Checked functions.config()
+[debug] [2019-05-31T09:55:21.603Z] firebase-admin has been stubbed.
+[info] i  functions: HTTP trigger initialized at http://localhost:5001/orders-pwa/us-central1/api1
+[debug] [2019-05-31T09:57:18.520Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T09:57:18.824Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T09:57:18.825Z] Disabled runtime features: undefined
+[debug] [2019-05-31T09:57:19.466Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T09:57:19.470Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T09:57:19.620Z] Checked functions.config()
+[debug] [2019-05-31T09:57:19.878Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T09:57:20.050Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T09:57:20.051Z] 
+[debug] [2019-05-31T09:57:20.051Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T09:57:20.060Z] {"socketPath":"/tmp/firebase_emulator_invocation_14961.sock"}
+[debug] [2019-05-31T09:57:20.062Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_14961.sock"}
+[debug] [2019-05-31T09:57:20.070Z] Ephemeral server used!
+[debug] [2019-05-31T09:57:20.074Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:13:22)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T09:58:53.114Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T09:58:54.426Z] Functions runtime initialized.
+[debug] [2019-05-31T09:58:54.427Z] Disabled runtime features: undefined
+[debug] [2019-05-31T09:58:55.093Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T09:58:55.095Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T09:58:55.240Z] Checked functions.config()
+[debug] [2019-05-31T09:58:55.505Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T09:59:03.415Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T09:59:03.710Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T09:59:03.711Z] Disabled runtime features: undefined
+[debug] [2019-05-31T09:59:04.419Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T09:59:04.419Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T09:59:04.558Z] Checked functions.config()
+[debug] [2019-05-31T09:59:04.836Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T09:59:05.018Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T09:59:05.018Z] 
+[debug] [2019-05-31T09:59:05.018Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T09:59:05.028Z] {"socketPath":"/tmp/firebase_emulator_invocation_15350.sock"}
+[debug] [2019-05-31T09:59:05.029Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_15350.sock"}
+[debug] [2019-05-31T09:59:05.037Z] Ephemeral server used!
+[info] >  
+[debug] [2019-05-31T09:59:05.040Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:22)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:00:29.389Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:00:29.696Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:00:29.697Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:00:30.396Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:00:30.396Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:00:30.531Z] Checked functions.config()
+[debug] [2019-05-31T10:00:30.792Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:00:30.955Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:00:30.956Z] 
+[debug] [2019-05-31T10:00:30.956Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:00:30.964Z] {"socketPath":"/tmp/firebase_emulator_invocation_15615.sock"}
+[debug] [2019-05-31T10:00:30.966Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_15615.sock"}
+[debug] [2019-05-31T10:00:30.975Z] Ephemeral server used!
+[info] >  
+[debug] [2019-05-31T10:00:30.979Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:22)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:00:41.090Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:00:42.400Z] Functions runtime initialized.
+[debug] [2019-05-31T10:00:42.401Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:00:43.042Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:00:43.043Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:00:43.180Z] Checked functions.config()
+[debug] [2019-05-31T10:00:43.443Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:00:44.454Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:00:44.763Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:00:44.765Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:00:45.403Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:00:45.403Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:00:45.539Z] Checked functions.config()
+[debug] [2019-05-31T10:00:45.795Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:00:45.959Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:00:45.959Z] 
+[debug] [2019-05-31T10:00:45.959Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:00:45.968Z] {"socketPath":"/tmp/firebase_emulator_invocation_15800.sock"}
+[debug] [2019-05-31T10:00:45.969Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_15800.sock"}
+[debug] [2019-05-31T10:00:45.976Z] Ephemeral server used!
+[debug] [2019-05-31T10:00:45.979Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:00:56.376Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:00:57.356Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:00:57.764Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:00:57.765Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:00:57.773Z] Functions runtime initialized.
+[debug] [2019-05-31T10:00:57.774Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:00:58.439Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:00:58.439Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:00:58.486Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:00:58.486Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:00:58.613Z] Checked functions.config()
+[debug] [2019-05-31T10:00:58.629Z] Checked functions.config()
+[debug] [2019-05-31T10:00:58.921Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:00:58.930Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:00:59.095Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:00:59.095Z] 
+[debug] [2019-05-31T10:00:59.095Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:00:59.104Z] {"socketPath":"/tmp/firebase_emulator_invocation_15904.sock"}
+[debug] [2019-05-31T10:00:59.105Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_15904.sock"}
+[debug] [2019-05-31T10:00:59.112Z] Ephemeral server used!
+[debug] [2019-05-31T10:00:59.115Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:13:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:03:12.375Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:03:13.678Z] Functions runtime initialized.
+[debug] [2019-05-31T10:03:13.679Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:03:14.342Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:03:14.342Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:03:14.480Z] Checked functions.config()
+[debug] [2019-05-31T10:03:14.758Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:03:15.611Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:03:15.922Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:03:15.923Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:03:16.570Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:03:16.571Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:03:16.707Z] Checked functions.config()
+[debug] [2019-05-31T10:03:16.967Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:03:17.142Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:03:17.143Z] 
+[debug] [2019-05-31T10:03:17.143Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:03:17.153Z] {"socketPath":"/tmp/firebase_emulator_invocation_16439.sock"}
+[debug] [2019-05-31T10:03:17.154Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_16439.sock"}
+[debug] [2019-05-31T10:03:17.176Z] Ephemeral server used!
+[debug] [2019-05-31T10:03:17.179Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:13:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:05:15.077Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:05:16.378Z] Functions runtime initialized.
+[debug] [2019-05-31T10:05:16.379Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:05:17.035Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:05:17.035Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:05:17.175Z] Checked functions.config()
+[debug] [2019-05-31T10:05:17.429Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:05:21.140Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:05:21.446Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:05:21.447Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:05:22.090Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:05:22.090Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:05:22.237Z] Checked functions.config()
+[debug] [2019-05-31T10:05:22.500Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:05:22.672Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:05:22.673Z] 
+[debug] [2019-05-31T10:05:22.673Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:05:22.681Z] {"socketPath":"/tmp/firebase_emulator_invocation_16869.sock"}
+[debug] [2019-05-31T10:05:22.682Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_16869.sock"}
+[debug] [2019-05-31T10:05:22.701Z] Ephemeral server used!
+[debug] [2019-05-31T10:05:22.705Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Converting circular structure to JSON
+[info] >      at JSON.stringify (<anonymous>)
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:13:15)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[debug] [2019-05-31T10:05:42.963Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:05:44.271Z] Functions runtime initialized.
+[debug] [2019-05-31T10:05:44.272Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:05:44.929Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:05:44.929Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:05:45.072Z] Checked functions.config()
+[debug] [2019-05-31T10:05:45.332Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:05:45.633Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:05:45.935Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:05:45.936Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:05:46.590Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:05:46.591Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:05:46.735Z] Checked functions.config()
+[debug] [2019-05-31T10:05:46.999Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:05:47.166Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:05:47.167Z] 
+[debug] [2019-05-31T10:05:47.167Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:05:47.175Z] {"socketPath":"/tmp/firebase_emulator_invocation_17076.sock"}
+[debug] [2019-05-31T10:05:47.176Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_17076.sock"}
+[debug] [2019-05-31T10:05:47.196Z] Ephemeral server used!
+[debug] [2019-05-31T10:05:47.199Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Converting circular structure to JSON
+[info] >      at JSON.stringify (<anonymous>)
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:13:15)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[debug] [2019-05-31T10:10:36.775Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:10:38.089Z] Functions runtime initialized.
+[debug] [2019-05-31T10:10:38.090Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:10:38.772Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:10:38.773Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:10:38.915Z] Checked functions.config()
+[debug] [2019-05-31T10:10:39.176Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:10:44.408Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:10:44.715Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:10:44.718Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:10:45.380Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:10:45.381Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:10:45.520Z] Checked functions.config()
+[debug] [2019-05-31T10:10:45.773Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:10:45.945Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:10:45.945Z] 
+[debug] [2019-05-31T10:10:45.945Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:10:45.955Z] {"socketPath":"/tmp/firebase_emulator_invocation_17897.sock"}
+[debug] [2019-05-31T10:10:45.956Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_17897.sock"}
+[debug] [2019-05-31T10:10:45.979Z] Ephemeral server used!
+[debug] [2019-05-31T10:10:45.982Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'data' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:30)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:13:11.659Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:13:12.968Z] Functions runtime initialized.
+[debug] [2019-05-31T10:13:12.969Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:13:13.634Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:13:13.634Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:13:13.774Z] Checked functions.config()
+[debug] [2019-05-31T10:13:14.044Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:13:24.519Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:13:24.824Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:13:24.825Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:13:25.475Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:13:25.475Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:13:25.629Z] Checked functions.config()
+[debug] [2019-05-31T10:13:25.928Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:13:26.096Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:13:26.096Z] 
+[debug] [2019-05-31T10:13:26.096Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:13:26.104Z] {"socketPath":"/tmp/firebase_emulator_invocation_18403.sock"}
+[debug] [2019-05-31T10:13:26.105Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_18403.sock"}
+[debug] [2019-05-31T10:13:26.124Z] Ephemeral server used!
+[debug] [2019-05-31T10:13:26.127Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:14:24.151Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:14:24.452Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:14:24.453Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:14:25.106Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:14:25.107Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:14:25.244Z] Checked functions.config()
+[debug] [2019-05-31T10:14:25.506Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:14:25.677Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:14:25.678Z] 
+[debug] [2019-05-31T10:14:25.678Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:14:25.686Z] {"socketPath":"/tmp/firebase_emulator_invocation_18615.sock"}
+[debug] [2019-05-31T10:14:25.687Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_18615.sock"}
+[debug] [2019-05-31T10:14:25.695Z] Ephemeral server used!
+[debug] [2019-05-31T10:14:25.698Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:14:58.168Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:14:58.470Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:14:58.472Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:14:59.134Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:14:59.134Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:14:59.275Z] Checked functions.config()
+[debug] [2019-05-31T10:14:59.533Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:14:59.703Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:14:59.703Z] 
+[debug] [2019-05-31T10:14:59.703Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:14:59.712Z] {"socketPath":"/tmp/firebase_emulator_invocation_18766.sock"}
+[debug] [2019-05-31T10:14:59.713Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_18766.sock"}
+[debug] [2019-05-31T10:14:59.723Z] Ephemeral server used!
+[debug] [2019-05-31T10:14:59.729Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of null
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at Busboy.busboy.on (/workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/processMultipart.js:79:5)
+[info] >      at Busboy.emit (events.js:194:15)
+[info] >      at Busboy.emit (/workspace/orders-react-admin/functions/node_modules/busboy/lib/main.js:38:33)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/busboy/lib/types/multipart.js:303:17
+[info] >      at process._tickCallback (internal/process/next_tick.js:61:11)
+[debug] [2019-05-31T10:15:35.663Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:15:36.968Z] Functions runtime initialized.
+[debug] [2019-05-31T10:15:36.969Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:15:37.633Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:15:37.634Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:15:37.780Z] Checked functions.config()
+[debug] [2019-05-31T10:15:38.044Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:15:38.925Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:15:39.222Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:15:39.223Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:15:39.888Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:15:39.889Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:15:40.032Z] Checked functions.config()
+[debug] [2019-05-31T10:15:40.301Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:15:40.467Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:15:40.467Z] 
+[debug] [2019-05-31T10:15:40.468Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:15:40.476Z] {"socketPath":"/tmp/firebase_emulator_invocation_19007.sock"}
+[debug] [2019-05-31T10:15:40.477Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19007.sock"}
+[debug] [2019-05-31T10:15:40.489Z] Ephemeral server used!
+[debug] [2019-05-31T10:15:40.493Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'name' of null
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at Busboy.busboy.on (/workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/processMultipart.js:79:5)
+[info] >      at Busboy.emit (events.js:194:15)
+[info] >      at Busboy.emit (/workspace/orders-react-admin/functions/node_modules/busboy/lib/main.js:38:33)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/busboy/lib/types/multipart.js:303:17
+[info] >      at process._tickCallback (internal/process/next_tick.js:61:11)
+[debug] [2019-05-31T10:16:20.198Z] File /workspace/orders-react-admin/functions/index.js changed, reloading triggers
+[debug] [2019-05-31T10:16:21.503Z] Functions runtime initialized.
+[debug] [2019-05-31T10:16:21.504Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:16:22.179Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:16:22.179Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:16:22.318Z] Checked functions.config()
+[debug] [2019-05-31T10:16:22.577Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:16:24.842Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:16:25.151Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:16:25.152Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:16:25.806Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:16:25.807Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:16:25.951Z] Checked functions.config()
+[debug] [2019-05-31T10:16:26.216Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:16:26.391Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:16:26.391Z] 
+[debug] [2019-05-31T10:16:26.391Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:16:26.401Z] {"socketPath":"/tmp/firebase_emulator_invocation_19255.sock"}
+[debug] [2019-05-31T10:16:26.402Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19255.sock"}
+[debug] [2019-05-31T10:16:26.412Z] Ephemeral server used!
+[debug] [2019-05-31T10:16:26.418Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of null
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at Busboy.busboy.on (/workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/processMultipart.js:79:5)
+[info] >      at Busboy.emit (events.js:194:15)
+[info] >      at Busboy.emit (/workspace/orders-react-admin/functions/node_modules/busboy/lib/main.js:38:33)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/busboy/lib/types/multipart.js:303:17
+[info] >      at process._tickCallback (internal/process/next_tick.js:61:11)
+[debug] [2019-05-31T10:17:01.635Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:17:01.939Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:17:01.941Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:17:02.614Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:17:02.614Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:17:02.759Z] Checked functions.config()
+[debug] [2019-05-31T10:17:03.018Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:17:03.194Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:17:03.195Z] 
+[debug] [2019-05-31T10:17:03.195Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:17:03.204Z] {"socketPath":"/tmp/firebase_emulator_invocation_19413.sock"}
+[debug] [2019-05-31T10:17:03.205Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19413.sock"}
+[debug] [2019-05-31T10:17:03.215Z] Ephemeral server used!
+[debug] [2019-05-31T10:17:03.221Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of null
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at Busboy.busboy.on (/workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/processMultipart.js:79:5)
+[info] >      at Busboy.emit (events.js:194:15)
+[info] >      at Busboy.emit (/workspace/orders-react-admin/functions/node_modules/busboy/lib/main.js:38:33)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/busboy/lib/types/multipart.js:303:17
+[info] >      at process._tickCallback (internal/process/next_tick.js:61:11)
+[debug] [2019-05-31T10:17:51.943Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:17:52.243Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:17:52.244Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:17:52.913Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:17:52.913Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:17:53.057Z] Checked functions.config()
+[debug] [2019-05-31T10:17:53.318Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:17:53.484Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:17:53.484Z] 
+[debug] [2019-05-31T10:17:53.484Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:17:53.493Z] {"socketPath":"/tmp/firebase_emulator_invocation_19596.sock"}
+[debug] [2019-05-31T10:17:53.493Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19596.sock"}
+[debug] [2019-05-31T10:17:53.505Z] Ephemeral server used!
+[debug] [2019-05-31T10:17:53.506Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:18:10.684Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:18:10.996Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:18:10.997Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:18:11.655Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:18:11.655Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:18:11.797Z] Checked functions.config()
+[debug] [2019-05-31T10:18:12.060Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:18:12.234Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:18:12.234Z] 
+[debug] [2019-05-31T10:18:12.234Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:18:12.243Z] {"socketPath":"/tmp/firebase_emulator_invocation_19719.sock"}
+[debug] [2019-05-31T10:18:12.244Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19719.sock"}
+[debug] [2019-05-31T10:18:12.254Z] Ephemeral server used!
+[debug] [2019-05-31T10:18:12.257Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[debug] [2019-05-31T10:18:43.703Z] Accepted request POST /orders-pwa/us-central1/api1 --> api1
+[debug] [2019-05-31T10:18:44.013Z] Functions runtime initialized.
+[info] i  functions: Beginning execution of "api1"
+[debug] [2019-05-31T10:18:44.015Z] Disabled runtime features: undefined
+[debug] [2019-05-31T10:18:44.668Z] Found google-gax at /workspace/orders-react-admin/functions/node_modules/google-gax/build/src/index.js
+[debug] [2019-05-31T10:18:44.669Z] Outgoing network have been stubbed.
+[debug] [2019-05-31T10:18:44.811Z] Checked functions.config()
+[debug] [2019-05-31T10:18:45.076Z] firebase-admin has been stubbed.
+[debug] [2019-05-31T10:18:45.253Z] Trigger "api1" has been found, beginning invocation!
+[debug] [2019-05-31T10:18:45.253Z] 
+[debug] [2019-05-31T10:18:45.254Z] Running api1 in mode HTTPS
+[info] i  Your code has been provided a "firebase-admin" instance.
+[info] i  Your code does not appear to initialize the 'firebase-admin' module, so we've done it automatically.
+   - Learn more: https://firebase.google.com/docs/admin/setup
+[debug] [2019-05-31T10:18:45.262Z] {"socketPath":"/tmp/firebase_emulator_invocation_19872.sock"}
+[debug] [2019-05-31T10:18:45.263Z] [functions] Runtime ready! Sending request! {"socketPath":"/tmp/firebase_emulator_invocation_19872.sock"}
+[debug] [2019-05-31T10:18:45.273Z] Ephemeral server used!
+[debug] [2019-05-31T10:18:45.277Z] Ephemeral server survived.
+[info] i  functions: Finished "api1" in ~1s
+[info] >  TypeError: Cannot read property 'csvfile' of undefined
+[info] >      at app1.post (/workspace/orders-react-admin/functions/index.js:14:23)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:137:13)
+[info] >      at Route.dispatch (/workspace/orders-react-admin/functions/node_modules/express/lib/router/route.js:112:3)
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:281:22
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:354:14)
+[info] >      at param (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:365:14)
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:410:3)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express-fileupload/lib/index.js:29:14
+[info] >      at Layer.handle [as handle_request] (/workspace/orders-react-admin/functions/node_modules/express/lib/router/layer.js:95:5)
+[info] >      at trim_prefix (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:317:13)
+[info] >      at /workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:284:7
+[info] >      at Function.process_params (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:335:12)
+[info] >      at next (/workspace/orders-react-admin/functions/node_modules/express/lib/router/index.js:275:10)

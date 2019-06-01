@@ -22,4 +22,26 @@ const newShop = (data,res) =>{
         })
     }
 }
-export {updateShop,deleteShop,newShop}
+const uploadCsv = (data,next)=>{
+    return (dispatch,getState,{getFirebase,getFirestore})=>{
+        const db = getFirestore();
+        var batch = db.batch();
+        data.map((doc) => {
+            var docRef = db.collection("shops").doc(); //automatically generate unique id
+            return batch.set(docRef, doc);
+        });
+        batch.commit().then(next)
+    }
+}
+const bulkDelete = (data,next)=>{
+    return (dispatch,getState,{getFirebase,getFirestore})=>{
+        const db = getFirestore();
+        var batch = db.batch();
+        data.map((doc) => {
+            var docRef = db.collection("shops").doc(doc.id); //automatically generate unique id
+            return batch.delete(docRef);
+        });
+        batch.commit().then(next)
+    }
+}
+export {updateShop,deleteShop,newShop,uploadCsv,bulkDelete}

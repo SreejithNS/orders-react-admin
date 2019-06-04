@@ -65,7 +65,7 @@ class Content extends Component{
             Upload
         </Button>
         </label>
-        <Button onClick={this.multipleDeleteToggle} variant="outlined" color={this.state.multipleDelete?"secondary":"primary"} component="span">
+        <Button onClick={this.multipleDeleteToggle} marginLeft={2} variant="outlined" color={this.state.multipleDelete?"secondary":"primary"} component="span">
             multiple Delete
         </Button></Paper>
         <div className={this.props.classes.root}>
@@ -116,7 +116,7 @@ class Content extends Component{
         )
 
     }
-}
+};
 const mapDispatchToProps = (dispatch)=>{
     return {
         updateShop:(id,data,res)=>dispatch(updateShop(id,data,res)),

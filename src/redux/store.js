@@ -9,6 +9,14 @@ import {firestoreReducer} from "redux-firestore";
 import {firebaseReducer} from "react-redux-firebase"
 import user from './reducers/userReducer';
 import ui from "./reducers/uiReducer"
+const composeEnhancers =
+  typeof window === 'object' &&
+  window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ ?
+    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+      // Specify extension’s options like name, actionsBlacklist, actionsCreators, serialize...
+    }) : compose;
+
+
 
 const store = createStore(combineReducers({
         user,
@@ -16,7 +24,7 @@ const store = createStore(combineReducers({
         firestore:firestoreReducer,
         firebase:firebaseReducer
     }),{},
-    compose(
+    composeEnhancers(
         applyMiddleware(logger,thunk.withExtraArgument({getFirebase,getFirestore})),
         reduxFirestore(firebase),
         reactReduxFirebase(firebase,{useFirestoreForProfile:true,userProfile:'users',attachAuthIsReady:true})

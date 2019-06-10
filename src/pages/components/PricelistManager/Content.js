@@ -7,6 +7,7 @@ import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
 import MaterialTable from 'material-table';
 import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
+
 const generateClassName = createGenerateClassName({
   productionPrefix: 'mt',
   seed: 'mt'

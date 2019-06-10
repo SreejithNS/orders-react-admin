@@ -70,7 +70,7 @@ class Dashboard extends Component{
                                 <ListItemText>Pricelist Code</ListItemText>
                                 <ListItemText className={props.classes.configValue}>{admin?admin.appSettings.pricelist:""}</ListItemText>
                             </ListItem>
-                            <ListItem> 
+                            <ListItem>
                                 <ListItemText>Location</ListItemText>
                                 <ListItemText className={props.classes.configValue}>{admin?admin.appSettings.location:""}</ListItemText>
                             </ListItem>

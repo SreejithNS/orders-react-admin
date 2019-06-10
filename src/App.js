@@ -7,6 +7,7 @@ import Dashboard from './pages/Dashboard';
 import AppConfiguration from './pages/AppConfiguration';
 import PricelistManager from './pages/PricelistManager';
 import ShopsManager from './pages/ShopsManager';
+import SalesDepartment from './pages/SalesDepartment';
 import {connect} from 'react-redux'
 
 class App extends Component {
@@ -29,7 +30,12 @@ class App extends Component {
       },
       {
         name:'Shops Manager',
-        path:'shops',
+        path:'shopsmanager',
+        icon:<Check/>
+      },
+      {
+        name:'Sales Department',
+        path:'sales',
         icon:<Check/>
       },
     ]
@@ -77,6 +83,9 @@ class App extends Component {
             </Route>
             <Route  path="/shopsmanager">
               <ShopsManager toggleSideMenu={()=> {props.toggleSideMenu()}}/>
+            </Route>
+            <Route  path="/sales">
+              <SalesDepartment toggleSideMenu={()=> {props.toggleSideMenu()}}/>
             </Route>
           </Switch>
       </div>

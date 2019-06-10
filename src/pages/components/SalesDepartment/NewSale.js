@@ -1,11 +1,11 @@
 import React, {Component} from 'react'
 import {Paper, Box, Typography,TextField,Grid,Avatar} from "@material-ui/core";
-import {Settings as SettingsIcon} from "@material-ui/icons";
+import {Settings as SettingsIcon, AccountCircleOutlined, Edit} from "@material-ui/icons";
 import {withStyles} from '@material-ui/core/styles';
 import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
-import MaterialTable from 'material-table';
+//import MaterialTable from 'material-table';
 
 const css = {
     content:{
@@ -21,25 +21,39 @@ class NewSale extends Component{
         chosenSalesman:{},
         salesmanChosen:false,
         salesmanField:'',
-        avatarList:new Map()
+        avatarList:[],
+        editSalesMan:false
+    }
+    toggleSalesmanEdit = (entered)=>()=>{this.setState({editSalesMan:entered})}
+    resetSalesman =()=>this.setState({
+        chosenSalesman:{},
+        salesmanChosen:false,
+        avatarList:[]
+    })
+    selectSalesman = (id) => (e)=>{
+        const {salesmenList} = this.props;
+        return this.setState({
+            salesmanChosen:true,
+            salesmanField:salesmenList[id].name,
+            chosenSalesman:salesmenList[id]
+        })
     }
     typeSalesmanName(e){
-        if(!this.props.salesmenList) return false;
+        if(!this.props.salesmenList && e.target.value === '') return false;
         const {salesmenList} = this.props;
         const inp = e.target.value.toUpperCase().split('');
         var list = [];
-        var avatarList = new Map();
+        var avatarList = [];
         for(let id in salesmenList){
             const name = salesmenList[id].name.toUpperCase().split('').splice(0,inp.length).join('')
-            if(inp.join('') ===  name){list.push({name:salesmenList[id].name,id});avatarList.set(id,salesmenList[id].dp);this.setState({salesmanField:e.target.value.toUpperCase(),avatarList:avatarList})}
+            if(inp.join('') ===  name){list.push({name:salesmenList[id].name,id});avatarList.push({id,src:salesmenList[id].dp});this.setState({salesmanField:e.target.value.toUpperCase(),avatarList:avatarList.splice(0,2)})}
         }
-        console.log("SUGGESTION\n\t",list)//return list;
+        return list;
     }
 
     render(){
-        const {state,props} = this;
-        const {salesmanChosen,chosenSalesman,salesmanField,avatarList} = state;
-        console.log("Avatar",(avatarList && avatarList.size!==0))
+        const {state,props,toggleSalesmanEdit,resetSalesman} = this;
+        const {salesmanChosen/*,chosenSalesman*/,salesmanField,avatarList,editSalesMan} = state;
         return(
             <Paper>
                 <Box display="flex" alignItems="center" pl={2} pt={2}>
@@ -49,6 +63,7 @@ class NewSale extends Component{
                     <Grid item xs={6} sm={3} md={3} m={3}>
                         {(!salesmanChosen || salesmanField === '')?
                         <form noValidate autoComplete="off">
+                            <Box display="flex" alignItems="center">
                             <TextField
                                 id="newsale-salesman-name"
                                 label="Sales Man"
@@ -57,12 +72,12 @@ class NewSale extends Component{
                                 margin="normal"
                                 className={props.classes.salesmanField}
                                 variant="filled"
-                            /><br/>
-                            {(avatarList && avatarList.size!==0)?avatarList.forEach((src,id)=><Avatar alt="Click to choose him" key={id} src={src} />):''}
-                            <Avatar src="https://www.google.co.in/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"/>
+                            />
+                            {(avatarList && avatarList.length!==0)?avatarList.map(({src,id},key)=><Avatar alt="Click to choose him" style={{margin:"5px",top:"5px"}} key={key} onClick={this.selectSalesman(id)} src={src} />):''}
+                            </Box>
                         </form>:
-                        <Box display="flex" alignItems="center" pl={2} pt={2}>
-                            <SettingsIcon mr={1}/><Typography variant="h6" color='textPrimary'>Saleman Name</Typography>
+                        <Box display="flex" onMouseEnter={toggleSalesmanEdit(true)} onMouseLeave={toggleSalesmanEdit(false)} alignItems="center" p={2}>
+                            <AccountCircleOutlined mr={1}/><Typography variant="h6" color='textPrimary'>{salesmanField.split(" ")[0]}</Typography>{(editSalesMan)?<Edit onClick={resetSalesman} ml={2}/>:""}
                         </Box>
                         }
                     </Grid>

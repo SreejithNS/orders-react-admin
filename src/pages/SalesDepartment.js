@@ -12,7 +12,8 @@ import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
 import { Switch, Route} from 'react-router-dom';
-import NewSale from "./components/SalesDepartment/NewSale"
+import NewSale from "./components/SalesDepartment/NewSale";
+import SaleDashboard from './components/SalesDepartment/SaleDashboard';
 import MaterialTable from 'material-table';
 var css = {
     root: {
@@ -92,6 +93,9 @@ class Dashboard extends Component{
                 <Route path='/sales/new'>
                     <NewSale/>
                 </Route>
+                <Route  path="/sales/:id" render={props => (
+                    <SaleDashboard saleId={props.match.params.id}/>
+                )}/>
             </Switch>
             </Fragment>
         )

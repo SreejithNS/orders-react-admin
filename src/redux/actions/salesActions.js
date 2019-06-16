@@ -6,4 +6,12 @@ const newSale = (data,next) =>{
         })
     }
 }
-export {newSale};
+const updateTaken = (id,salesman,data,res) =>{
+    return (dispatch,getState,{getFirebase,getFirestore})=>{
+        const fs = getFirestore();
+        fs.collection("sales").doc(id).set(data).then(()=>{
+           res();
+        })
+    }
+}
+export {newSale,updateTaken};

@@ -110,7 +110,8 @@ class NewSale extends Component{
             location:selectedLocation,
             pricelist:settings.pricelist,
             date:new Date(),
-            status:'On-Sale'
+            status:'On-Sale',
+            containerReturn:containerItems
         },this.redirect)
     }
     render(){

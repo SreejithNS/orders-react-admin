@@ -4,7 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import {Paper, Box} from "@material-ui/core";
-import MenuIcon from '@material-ui/icons/Menu';
+import {Menu} from '@material-ui/icons';
 import SettingsIcon from '@material-ui/icons/Settings'
 import {withStyles} from '@material-ui/core/styles';
 import LoginButton from './components/LoginButton';
@@ -15,6 +15,8 @@ import { Switch, Route} from 'react-router-dom';
 import NewSale from "./components/SalesDepartment/NewSale";
 import SaleDashboard from './components/SalesDepartment/SaleDashboard';
 import MaterialTable from 'material-table';
+import {Redirect} from 'react-router-dom';
+import Loading from "./components/Loading";
 var css = {
     root: {
       flexGrow: 1,
@@ -39,18 +41,24 @@ var css = {
 class Dashboard extends Component{
 
         state = {
-            pageTitle:'Sales Department'
+            pageTitle:'Sales Department',
+            redirect:false,
+            saleId:''
         }
+    
+        doRedirect=(event, rowData) => this.setState({redirect:true,saleId:rowData.id})
 
     render(){
-        const {props,state} = this;
+        const {props,state,doRedirect} = this;
+        const {onsale} = this.props;
+        const {saleId,redirect} = this.state;
         return(
             <Fragment>
             <div className={props.classes.root}>
                         <AppBar position="static">
                             <Toolbar>
                             <IconButton className={props.classes.menuButton} color="inherit" aria-label="Menu"  onClick={props.toggleSideMenu}>
-                                <MenuIcon />
+                                <Menu />
                             </IconButton>
                             <Typography variant="h6" color="inherit" className={props.classes.grow}>
                                 {state.pageTitle}
@@ -61,40 +69,36 @@ class Dashboard extends Component{
                     </div>
                 <Switch>
                 <Route exact path="/sales/">
-                    <div className={props.classes.content}>
+                    {onsale?<div className={props.classes.content}>
                         <Paper className={props.classes.toolbox}>
                             <Box display="flex" alignItems="center" pl={2} pt={2}>
                                 <SettingsIcon mr={1}/><Typography variant="h6" color='textPrimary'>Sales</Typography>
                             </Box>
                         </Paper>
                         <MaterialTable
-                            title="Reports"
+                            title="On Sale"
                             columns={[
                                 {title:"Location",field:"location",searchable:true},
                                 {title:"Salesman",field:"salesmanName",searchable:true},
-                                {title:"Status",field:"status",searchable:true},
-                                {title:"Cash Received",field:"totalAmount",type:"numeric"}
+                                {title:"Taken",field:"totalAmount",type:'numeric',searchable:true}
                             ]}
-                            data={[
-                                {location:"TPT",salesmanName:"Mani",status:"In-Line",totalAmount:42513},
-                                {location:"VNB",salesmanName:"Mani",status:"Reported",totalAmount:42513}
-                            ]}
+                            data={onsale}
                             actions={[
                                 rowData => ({
-                                    icon: 'edit',
-                                    tooltip: 'Delete User',
-                                    onClick: (event, rowData) => alert("You want to delete " + rowData.location),
-                                    disabled: rowData.status === "Reported"
+                                    icon:'dashboard',
+                                    tooltip: 'Manage',
+                                    onClick: doRedirect
                                 })
                             ]}
                         />
-                    </div>
+                        {redirect? <Redirect to={"/sales/"+saleId} />:""}
+                    </div>:<Loading/>}
                 </Route>
                 <Route path='/sales/new'>
                     <NewSale/>
                 </Route>
                 <Route  path="/sales/:id" render={props => (
-                    <SaleDashboard saleId={props.match.params.id}/>
+                    <SaleDashboard salesId={props.match.params.id}/>
                 )}/>
             </Switch>
             </Fragment>
@@ -103,11 +107,20 @@ class Dashboard extends Component{
 }
 const mapStateToProps = (state)=>{
     return {
+        onsale:state.firestore.ordered.onsale
     }
 };
 
 export default compose(
-    firestoreConnect([]),
+    firestoreConnect([
+        {
+            collection:'sales',
+            where:[
+                ['status','==','On-Sale']
+            ],
+            storeAs:'onsale'
+        }
+    ]),
     connect(mapStateToProps),
     withStyles(css)
 )(Dashboard)

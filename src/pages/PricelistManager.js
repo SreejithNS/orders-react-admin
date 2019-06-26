@@ -38,7 +38,7 @@ class PricelistManager extends Component{
             <Fragment>
                 <div className={props.classes.root}>
                     <AppBar position="static">
-                        <Toolbar>
+                         <Toolbar>
                         <IconButton className={props.classes.menuButton} color="inherit" aria-label="Menu"  onClick={props.toggleSideMenu}>
                             <MenuIcon />
                         </IconButton>

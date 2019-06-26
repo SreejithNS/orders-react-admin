@@ -111,7 +111,9 @@ class NewSale extends Component{
             pricelist:settings.pricelist,
             date:new Date(),
             status:'On-Sale',
-            containerReturn:containerItems
+            containerReturn:containerItems,
+            discountAmount:0,
+            returnAmount:0,
         },this.redirect)
     }
     render(){
@@ -203,10 +205,10 @@ class NewSale extends Component{
                     </Grid>
 
                     <Grid item container alignItems="center" xs={12} style={{padding:"8px"}}>
-                    <DateRangeSharp />
-                    <Typography color="textPrimary" fontSizeInherit variant="caption">
-                        {moment(new Date().toString()).format("DD-MM-YYYY")}
-                    </Typography>
+                        <DateRangeSharp />
+                        <Typography color="textPrimary" fontSizeInherit variant="caption">
+                            {moment(new Date().toString()).format("DD-MM-YYYY")}
+                        </Typography>
                     </Grid>
 
                     <Grid item container xs={12}>

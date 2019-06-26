@@ -32,7 +32,7 @@ class SaleDashboard extends Component{
     }
     render(){
         const {root,detailsCard} = this.props.classes;
-        const {saleId,data,updateTaken} = this.props;
+        const {salesId,data,updateTaken} = this.props;
         return (data)?
             <Paper elevation={0} className={root}>
                 <Paper className={detailsCard}>
@@ -58,7 +58,7 @@ class SaleDashboard extends Component{
                         <Grid item xs={6} sm={3} container display="flex" alignItems="center">
                             <DateRangeRounded />
                             <Typography variant="subtitle1" color="textPrimary">
-                                {moment(data.date.toString()).format("Do MMM")}
+                                {moment(data.date.toDate().toString()).format("Do MMM")}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -93,7 +93,7 @@ class SaleDashboard extends Component{
                                 const index = data.indexOf(oldData);
                                 data.splice(index, 1);
                                 //this.setState({ data }, () => resolve());
-                                updateTaken(saleId,data.takenItems,resolve);
+                                updateTaken(salesId,data.takenItems,resolve);
                             }),
                         }}
                 />
@@ -111,13 +111,8 @@ export default compose(
     firestoreConnect((props)=>[
         {
             collection:'sales',
-            doc:props.saleId,
+            doc:props.salesId,
             storeAs:"sale"
-        },
-        {
-            collection:'orders',
-            where:['saleId','==',props.saleId],
-            storeAs:'sold'
         }
     ]),
     connect(mapStateToProps),

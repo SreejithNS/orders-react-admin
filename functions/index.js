@@ -56,7 +56,7 @@ exports.updateSaleContainer = functions.firestore.document('orders/{orderId}').o
     }).then(function() {
         console.log(`Sale id:${saleId},container updated!`);
     }).catch(function(error) {
-        console.log(`Sale id:${saleId},container update Error`, error);
+        console.log(`Sale id:${saleId},container update Error`, error);                                                                                                                    
     });
   }else{
     return console.log(`Order received without saleId`)

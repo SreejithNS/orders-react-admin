@@ -77,7 +77,6 @@ class AddItems extends Component {
         this.props.updateContainer({containerItems:newList,totalAmount});
     }
     render(){
-        const {props} = this;
         const data = this.pricelistParser();
         return(
             <Fragment>

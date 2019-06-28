@@ -3,18 +3,14 @@ import {withStyles} from '@material-ui/core/styles';
 import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
-import Loading from '../../components/Loading';
-import { Paper, Typography, Grid, Box } from '@material-ui/core';
-import { AccountCircleSharp, DashboardRounded, PlaceRounded, DateRangeRounded } from '@material-ui/icons';
-// import AddItems from './components/AddItems';
+import Loading from '../Loading';
+import { Paper, Typography, Grid} from '@material-ui/core';
+import { AccountCircleSharp, PlaceRounded, DateRangeRounded } from '@material-ui/icons';
+import Bills from './components/Bills';
+import Taken from './Taken';
+import Container from './components/Container';
+import {updateTaken} from '../../../redux/actions/salesActions';
 import moment from 'moment';
-import MaterialTable from 'material-table';
-import { StylesProvider, createGenerateClassName } from '@material-ui/styles';
-const generateClassName = createGenerateClassName({
-  productionPrefix: 'mt',
-  seed: 'mt'
-});
-// import {newSale} from '../../../redux/actions/salesActions';
 // import {Redirect} from 'react-router-dom';
 const css ={
     root:{
@@ -32,79 +28,57 @@ class SaleDashboard extends Component{
     }
     render(){
         const {root,detailsCard} = this.props.classes;
-        const {salesId,data,updateTaken} = this.props;
+        const {data,bills} = this.props;
         return (data)?
             <Paper elevation={0} className={root}>
                 <Paper className={detailsCard}>
-                    <Box display="flex" justify="center" alignItems="center">
-                        <DashboardRounded/>
-                        <Typography variant="body1">
-                            Sale Dashboard
-                        </Typography>
-                    </Box>
-                    <Grid container justify="center">
-                        <Grid item xs={12} sm={3} container display="flex" alignItems="center">
+                  <Grid container justify="space-between"> 
+                    <Grid item xs={6} container justify="center">
+                        <Grid item xs={12} container display="flex" alignItems="center">
                             <AccountCircleSharp />
                             <Typography variant="subtitle1" color="textPrimary">
-                                {data.salesmanName.split(" ")[0]}
+                                {data.salesmanName}
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} sm={3} container display="flex" alignItems="center">
+                        <Grid item xs={6} container display="flex" alignItems="center">
                             <PlaceRounded />
                             <Typography variant="subtitle1" color="textPrimary">
                                 {data.location + " | " + data.pricelist}
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} sm={3} container display="flex" alignItems="center">
+                        <Grid item xs={6} container display="flex" alignItems="center">
                             <DateRangeRounded />
                             <Typography variant="subtitle1" color="textPrimary">
                                 {moment(data.date.toDate().toString()).format("Do MMM")}
                             </Typography>
                         </Grid>
                     </Grid>
+                    <Grid item xs={6}>
+                        <Taken stock={data.takenItems}/>
+                    </Grid>
+                  </Grid>  
                 </Paper>
-                <StylesProvider generateClassName={generateClassName}>
-                <MaterialTable
-                    title="Taken Items"
-                    columns={[
-                        {title:'Item',field:'itemName'},
-                        {title:'Quantity',field:'quantity'},
-                        {title:'Amount',field:'amount'}
-                    ]}
-                    data={data.takenItems}
-                    editable={{
-                        onRowAdd: newData =>
-                            new Promise((resolve, reject) => {
-                                const data = this.parseData();
-                                data.push(newData);
-                                updateTaken(data.takenItems,resolve);
-                            }),
-                        onRowUpdate: (newData, oldData) =>
-                            new Promise((resolve, reject) => {
-                                const data = this.parseData();
-                                const index = data.indexOf(oldData)
-                                data[index] = newData;
-                                //this.setState({ data }, () => resolve());
-                                updateTaken(data.takenItems,resolve);
-                            }),
-                        onRowDelete: oldData =>
-                            new Promise((resolve, reject) => {
-                                let data = this.parseData();
-                                const index = data.indexOf(oldData);
-                                data.splice(index, 1);
-                                //this.setState({ data }, () => resolve());
-                                updateTaken(salesId,data.takenItems,resolve);
-                            }),
-                        }}
-                />
-                </StylesProvider>
+                <Grid container alignItems="flex-start">
+                    <Grid item xs={9} style={{padding:6}}>
+                        <Bills bills={bills}/>
+                    </Grid>
+                    <Grid item xs={3} style={{padding:6}}>
+                        <Container containerReturn={data.containerReturn} returnAmount={data.returnAmount} discountAmount={data.discountAmount}/>
+                    </Grid>
+                </Grid>
             </Paper>
             :<Loading/>
     }
 }
 const mapStateToProps = (state)=>{
     return {
-        data:state.firestore.data.sale
+        data:state.firestore.data.sale,
+        bills:state.firestore.data.bills
+    }
+}
+const mapDispatchToProps = (dispatch)=>{
+    return {
+        updateTaken:(a,b,c)=>dispatch(updateTaken(a,b,c))
     }
 }
 export default compose(
@@ -113,8 +87,16 @@ export default compose(
             collection:'sales',
             doc:props.salesId,
             storeAs:"sale"
+        },
+        {
+            collection:'orders',
+            orderBy:['date','desc'],
+            where: [
+                ['saleId', '==', props.salesId]
+            ],
+            storeAs:'bills'
         }
     ]),
-    connect(mapStateToProps),
+    connect(mapStateToProps,mapDispatchToProps),
     withStyles(css)
 )(SaleDashboard)

@@ -63,7 +63,7 @@ class SaleDashboard extends Component{
                         <Bills bills={bills}/>
                     </Grid>
                     <Grid item xs={3} style={{padding:6}}>
-                        <Container containerReturn={data.containerReturn} returnAmount={data.returnAmount} discountAmount={data.discountAmount}/>
+                        <Container creditAmount={data.creditAmount} containerReturn={data.containerReturn} returnAmount={data.returnAmount} discountAmount={data.discountAmount}/>
                     </Grid>
                 </Grid>
             </Paper>

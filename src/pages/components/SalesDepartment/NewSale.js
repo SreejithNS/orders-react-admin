@@ -114,6 +114,7 @@ class NewSale extends Component{
             containerReturn:containerItems,
             discountAmount:0,
             returnAmount:0,
+            creditAmount:0,
         },this.redirect)
     }
     render(){

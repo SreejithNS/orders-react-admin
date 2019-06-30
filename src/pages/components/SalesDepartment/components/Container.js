@@ -22,7 +22,7 @@ class Container extends Component {
 
     }
     render(){
-        const {containerReturn,returnAmount,discountAmount} = this.props;
+        const {containerReturn,returnAmount,discountAmount,creditAmount} = this.props;
         const {root,itemBox} = this.props.classes
         return (<div>
             <Paper className={root}>
@@ -50,7 +50,7 @@ class Container extends Component {
                     <Grid item xs={12} md={6} container justify="space-around" >
                         <Box display="flex" className={itemBox}>
                             <Typography variant="caption" style={{color:"#fff"}}>Total Credits</Typography>
-                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>0</Typography>
+                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>{creditAmount}</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} container justify="space-around" >

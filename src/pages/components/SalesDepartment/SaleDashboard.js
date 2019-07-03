@@ -4,8 +4,8 @@ import {compose} from 'redux';
 import {firestoreConnect} from 'react-redux-firebase';
 import {connect} from 'react-redux';
 import Loading from '../Loading';
-import { Paper, Typography, Grid} from '@material-ui/core';
-import { AccountCircleSharp, PlaceRounded, DateRangeRounded } from '@material-ui/icons';
+import { Paper, Typography, Grid, Button} from '@material-ui/core';
+import { PlaceRounded, DateRangeRounded } from '@material-ui/icons';
 import Bills from './components/Bills';
 import Taken from './Taken';
 import Container from './components/Container';
@@ -28,33 +28,39 @@ class SaleDashboard extends Component{
     }
     render(){
         const {root,detailsCard} = this.props.classes;
-        const {data,bills} = this.props;
+        const {data,bills,salesId} = this.props;
         return (data)?
             <Paper elevation={0} className={root}>
                 <Paper className={detailsCard}>
                   <Grid container justify="space-between"> 
                     <Grid item xs={6} container justify="center">
                         <Grid item xs={12} container display="flex" alignItems="center">
-                            <AccountCircleSharp />
+                         {/*<AccountCircleSharp />*/}
+                            <Typography variant="subtitle1" color="textSecondary">
+                                Sales Man: 
+                            </Typography>
                             <Typography variant="subtitle1" color="textPrimary">
                                 {data.salesmanName}
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} container display="flex" alignItems="center">
+                        <Grid item xs container display="flex" alignItems="center">
                             <PlaceRounded />
                             <Typography variant="subtitle1" color="textPrimary">
                                 {data.location + " | " + data.pricelist}
                             </Typography>
                         </Grid>
-                        <Grid item xs={6} container display="flex" alignItems="center">
+                        <Grid item xs container display="flex" alignItems="center">
                             <DateRangeRounded />
                             <Typography variant="subtitle1" color="textPrimary">
                                 {moment(data.date.toDate().toString()).format("Do MMM")}
                             </Typography>
                         </Grid>
+                        <Grid item xs={12} container display="flex" justify="flex-start">
+                         <Button variant="outlined">update container</Button> 
+                        </Grid>
                     </Grid>
                     <Grid item xs={6}>
-                        <Taken stock={data.takenItems}/>
+                        <Taken stock={data.takenItems} saleId={salesId} amount={data.totalAmount} pricelistCode={data.pricelist} selectedLocation={data.location}/>
                     </Grid>
                   </Grid>  
                 </Paper>

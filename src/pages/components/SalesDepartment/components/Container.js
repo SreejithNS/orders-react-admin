@@ -44,19 +44,19 @@ class Container extends Component {
                     <Grid item xs={12} md={6} container justify="space-around" >
                         <Box display="flex" className={itemBox}>
                             <Typography variant="caption" style={{color:"#fff"}}>Total Discount</Typography>
-                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>{discountAmount}</Typography>
+                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>₹{discountAmount}</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} md={6} container justify="space-around" >
                         <Box display="flex" className={itemBox}>
                             <Typography variant="caption" style={{color:"#fff"}}>Total Credits</Typography>
-                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>{creditAmount}</Typography>
+                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>₹{creditAmount}</Typography>
                         </Box>
                     </Grid>
                     <Grid item xs={12} container justify="space-around" >
                         <Box display="flex" className={itemBox}>
                             <Typography variant="caption" style={{color:"#fff"}}>Total Return</Typography>
-                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>{returnAmount}</Typography>
+                            <Typography variant="h5" style={{color:"#fff",textAlign:'right'}}>₹{returnAmount}</Typography>
                         </Box>
                     </Grid>
                 </Grid>

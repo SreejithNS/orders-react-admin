@@ -69,3 +69,44 @@ exports.updateSaleContainer = functions.firestore.document('orders/{orderId}').o
     return console.log(`Order received without saleId`)
   }
 })
+
+exports.handleOrderDelete = functions.firestore.document('orders/{orderId}').onDelete((order, context) => {
+  if(order.data().onSale){
+    var groupBy = function(xs, key) {return xs.reduce(function(rv, x) {(rv[x[key]] = rv[x[key]] || []).push(x);return rv;}, {});};
+    const saleId = order.data().saleId;
+    var orderItems = order.data().order;
+    var credit = order.data().credit;
+    var creditAmount = order.data().creditAmount;
+    var discountAmount = order.data().discount? parseInt(order.data().discountAmount) : 0;
+    var docRef = admin.firestore().collection("sales").doc(saleId);
+
+    return admin.firestore().runTransaction((transaction)=>{
+        var orderedItems = groupBy(orderItems,"itemCode");
+        return transaction.get(docRef).then((doc)=>{
+          var onSale = doc.data().status==="On-Sale";
+          if(!onSale) return console.log('Order is deleted from completed sale.');
+          var containerItems = doc.data().containerReturn;
+          var returnAmount = doc.data().returnAmount;
+          var saleCredits = doc.data().creditAmount;
+          var newDiscountAmount = doc.data().discountAmount - parseInt(discountAmount);
+          
+          for(var itemCode in orderedItems){
+            //eslint-disable-next-line
+           var index = containerItems.findIndex(item=>item.itemCode === itemCode)
+           returnAmount -= parseInt(orderedItems[itemCode][0].amount);
+           containerItems[index].quantity = parseInt(containerItems[index].quantity) + parseInt(orderedItems[itemCode][0].quantity);
+          }
+          
+          returnAmount += discountAmount;
+          if(credit) {saleCredits-=creditAmount;returnAmount+=creditAmount}
+          return transaction.update(docRef, {containerReturn:containerItems,returnAmount,creditAmount:saleCredits,discountAmount:newDiscountAmount});
+        });
+    }).then(function() {
+        console.log(`Sale id:${saleId},container updated with deleted order`);
+    }).catch(function(error) {
+        console.log(`Sale id:${saleId},container update Error`, error);                                                                                                                    
+    });
+  }else{
+    return console.log(`Order deleted without saleId`)
+  }
+});

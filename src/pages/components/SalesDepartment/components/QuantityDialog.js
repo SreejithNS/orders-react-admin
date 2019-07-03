@@ -26,7 +26,7 @@ export default class QuantityDialog extends Component {
           itemName:name,
           rate,
           itemCode:code,
-          quantity:this.state.value,
+          quantity:parseInt(this.state.value),
           amount:Math.round(this.state.value*rate*100)/100
       })
       toggle()

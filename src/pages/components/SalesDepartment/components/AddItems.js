@@ -40,8 +40,8 @@ class AddItems extends Component {
         event.persist();
         var code,name,weight,rate;
         code   = event.currentTarget.attributes.code.value;
-        weight = event.currentTarget.attributes.weight.value;
-        rate   = event.currentTarget.attributes.rate.value;
+        weight = parseInt(event.currentTarget.attributes.weight.value);
+        rate   = parseInt(event.currentTarget.attributes.rate.value);
         name   = event.currentTarget.attributes.itemname.value;
         this.setState({
             dialogOpen:true,

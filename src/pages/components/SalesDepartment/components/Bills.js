@@ -18,7 +18,6 @@ class Bills extends Component {
             bills[orderId].orderId = orderId;
             billsList.push(bills[orderId])
         }
-        console.log(billsList)
         return billsList;
     }
     render(){

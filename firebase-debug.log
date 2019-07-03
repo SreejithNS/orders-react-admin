@@ -1,0 +1,38 @@
+[debug] [2019-07-02T17:21:06.286Z] ----------------------------------------------------------------------
+[debug] [2019-07-02T17:21:06.289Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\JITHU\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js serve --only functions
+[debug] [2019-07-02T17:21:06.289Z] CLI Version:   7.0.1
+[debug] [2019-07-02T17:21:06.289Z] Platform:      win32
+[debug] [2019-07-02T17:21:06.289Z] Node Version:  v10.16.0
+[debug] [2019-07-02T17:21:06.290Z] Time:          Tue Jul 02 2019 22:51:06 GMT+0530 (India Standard Time)
+[debug] [2019-07-02T17:21:06.290Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-07-02T17:21:06.305Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-07-02T17:21:06.306Z] > authorizing via signed-in user
+[debug] [2019-07-02T17:21:06.306Z] [iam] checking project orders-pwa for permissions ["firebase.projects.get"]
+[debug] [2019-07-02T17:21:06.309Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/orders-pwa:testIamPermissions  
+
+[debug] [2019-07-02T17:21:08.564Z] <<< HTTP RESPONSE 200
+[debug] [2019-07-02T17:21:08.566Z] >>> HTTP REQUEST GET https://cloudresourcemanager.googleapis.com/v1/projects/orders-pwa  
+ 
+[debug] [2019-07-02T17:21:09.975Z] <<< HTTP RESPONSE 200
+[warn] !  Your requested "node" version "8" doesn't match your global version "10"
+[debug] [2019-07-02T17:21:09.982Z] >>> HTTP REQUEST GET https://mobilesdk-pa.googleapis.com/v1/projects/219384534980:getServerAppConfig  
+ 
+[debug] [2019-07-02T17:21:10.812Z] <<< HTTP RESPONSE 200
+[info] +  functions: Emulator started at http://localhost:5000
+[info] i  functions: Watching "E:\Projects\Orders\orders-react-admin\functions" for Cloud Functions...
+[debug] [2019-07-02T17:21:11.630Z] Functions runtime initialized.
+[debug] [2019-07-02T17:21:11.631Z] Disabled runtime features: {"functions_config_helper":true,"network_filtering":true,"timeout":true,"memory_limiting":true,"protect_env":true,"admin_stubs":true}
+[debug] [2019-07-02T17:21:11.762Z] firebase-admin has been stubbed.
+[warn] !  Error: Failed to read credentials from file ./functions/key.json: Error: ENOENT: no such file or directory, open './functions/key.json'
+    at FirebaseAppError.FirebaseError [as constructor] (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\utils\error.js:42:28)
+    at FirebaseAppError.PrefixedFirebaseError [as constructor] (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\utils\error.js:88:28)
+    at new FirebaseAppError (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\utils\error.js:122:28)
+    at readCredentialFile (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\auth\credential.js:340:15)
+    at credentialFromFile (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\auth\credential.js:319:27)
+    at new ApplicationDefaultCredential (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\auth\credential.js:294:32)
+    at new FirebaseApp (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\firebase-app.js:194:40)
+    at FirebaseNamespaceInternals.initializeApp (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\firebase-namespace.js:80:19)
+    at FirebaseNamespace.initializeApp (E:\Projects\Orders\orders-react-admin\functions\node_modules\firebase-admin\lib\firebase-namespace.js:392:30)
+    at Proxy.<anonymous> (C:\Users\JITHU\AppData\Roaming\npm\node_modules\firebase-tools\lib\emulator\functionsEmulatorRuntime.js:288:37)
+[warn] !  We were unable to load your functions code. (see above)

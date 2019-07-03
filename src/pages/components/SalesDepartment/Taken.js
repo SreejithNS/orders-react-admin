@@ -1,7 +1,9 @@
 import React,{Component} from 'react';
-import { Paper, withStyles,Grid, Typography, Chip, Tooltip } from '@material-ui/core';
+import { Paper, withStyles,Grid, Typography, Chip, Tooltip, IconButton } from '@material-ui/core';
 import Loading from '../Loading';
-const css=theme=>{console.log(theme);return {
+import { LoupeRounded } from '@material-ui/icons';
+import SendTopup from './components/SendTopup';
+const css=theme=>{return {
     root:{
         padding:6,
         display:'inline-block'
@@ -15,7 +17,7 @@ const css=theme=>{console.log(theme);return {
 }
 class Taken extends Component {
     state={
-
+        topupDialog:false
     }
     stockList=()=>{
         var stock = this.props.stock;
@@ -27,14 +29,20 @@ class Taken extends Component {
         return stockList;
     }
     render(){
-        const {stock} = this.props;
+        const {stock,amount,saleId,selectedLocation,pricelistCode} = this.props;
         const {stockList} = this;
-        const {root} = this.props.classes
+        const {root} = this.props.classes;
+        const {topupDialog} = this.state;
         return(
             <Paper className={root} elevation={0} style={{border:"1px solid #aaa",display:"flex"}}>
                 <Grid container alignItems="stretch" justify="space-between" style={{flexGrow:1}}>
-                    <Grid item style={{marginLeft:"6px"}} xs={12}>
+                    <Grid item style={{marginLeft:"6px"}} xs={12} container alignItems="center">
                         <Typography variant="h6">Taken Items</Typography>
+                        <Tooltip title="Send a Topup">
+                            <IconButton onClick={()=>this.setState({topupDialog:true})} aria-label="Delete" style={{margin:1}} size="small">
+                                <LoupeRounded fontSize="inherit" />
+                            </IconButton>
+                        </Tooltip>
                     </Grid>
                     <Grid item>
                         {(stock === undefined || stock === null)?
@@ -45,8 +53,10 @@ class Taken extends Component {
                                 </Tooltip>
                             )
                         }
+                        <Chip style={{margin:1}} label={"Total ₹"+amount}/>
                     </Grid>
                 </Grid>
+                <SendTopup open={topupDialog} saleId={saleId} handleClose={()=>this.setState({topupDialog:false})} selectedLocation={selectedLocation} pricelistCode={pricelistCode}/>
             </Paper>
         ) 
     }
